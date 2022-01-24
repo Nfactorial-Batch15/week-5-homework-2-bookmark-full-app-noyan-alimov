@@ -10,9 +10,15 @@ import SnapKit
 
 class MainViewController: UIViewController {
     
+    var bookmarks: [Bookmark] = Storage.bookmarks {
+        didSet {
+            checkLinks()
+        }
+    }
+    
     private let headerTitle: UILabel = {
         let title = UILabel()
-        title.text = bookmarks.count == 0 ? "Bookmark App" : "List"
+        title.text = "Bookmark App"
         title.textColor = .black
         title.font = UIFont.boldSystemFont(ofSize: 17)
         return title
@@ -36,18 +42,25 @@ class MainViewController: UIViewController {
         btn.layer.cornerRadius = 16
         return btn
     }()
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.isHidden = true
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        tableView.register(LinkTableViewCell.self, forCellReuseIdentifier: "LinkTableViewCell")
+        tableView.dataSource = self
+        tableView.delegate = self
 
         showHeaderTitle()
         
-//        if bookmarks.count == 0 {
-            showCenterText()
-//        } else {
-//            showBookmarks()
-//        }
+        showCenterText()
+        showBookmarksTable()
         
         showButton()
     }
@@ -99,7 +112,9 @@ class MainViewController: UIViewController {
             let linkTextField = alert.textFields![1] as UITextField
             
             let bookmark = Bookmark(title: titleTextField.text!, link: linkTextField.text!)
-            bookmarks.append(bookmark)
+            self.bookmarks.append(bookmark)
+            Storage.bookmarks.append(bookmark)
+            self.tableView.reloadData()
         }
         alert.addAction(loginAction)
 
@@ -112,7 +127,37 @@ class MainViewController: UIViewController {
         present(alert, animated: true)
     }
     
-//    func showBookmarks() {
-//
-//    }
+    func checkLinks() {
+        if self.bookmarks.isEmpty {
+            centerText.isHidden = false
+            tableView.isHidden = true
+        } else {
+            centerText.isHidden = true
+            tableView.isHidden = false
+        }
+    }
+    
+    func showBookmarksTable() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(42)
+        }
+    }
+}
+
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.bookmarks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LinkTableViewCell", for: indexPath) as? LinkTableViewCell else { return UITableViewCell() }
+        cell.configure(model: bookmarks[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }

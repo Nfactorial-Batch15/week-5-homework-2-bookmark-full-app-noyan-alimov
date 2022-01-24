@@ -7,9 +7,7 @@
 
 import Foundation
 
-struct Bookmark {
+struct Bookmark: Codable {
     let title: String
     let link: String
 }
-
-var bookmarks: [Bookmark] = []

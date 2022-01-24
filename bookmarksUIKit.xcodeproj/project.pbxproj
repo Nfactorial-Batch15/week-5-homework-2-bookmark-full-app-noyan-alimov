@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		412D7A2052F128D9098BA7C6 /* Pods_bookmarksUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C659264AE99B4ACEB1951F7 /* Pods_bookmarksUIKit.framework */; };
+		7C107FEE279EA96C001E0274 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C107FED279EA96C001E0274 /* LinkTableViewCell.swift */; };
+		7C107FF0279EAC91001E0274 /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C107FEF279EAC91001E0274 /* AppStorage.swift */; };
 		7CBE25C0279D374E00272376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBE25BF279D374E00272376 /* AppDelegate.swift */; };
 		7CBE25C2279D374E00272376 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBE25C1279D374E00272376 /* SceneDelegate.swift */; };
 		7CBE25C4279D374E00272376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBE25C3279D374E00272376 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		1C659264AE99B4ACEB1951F7 /* Pods_bookmarksUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bookmarksUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C107FED279EA96C001E0274 /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
+		7C107FEF279EAC91001E0274 /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		7CBE25BC279D374D00272376 /* bookmarksUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookmarksUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBE25BF279D374E00272376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CBE25C1279D374E00272376 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 				7CBE25CD279D374F00272376 /* Info.plist */,
 				7CBE25D7279D60B600272376 /* MainViewController.swift */,
 				7CBE25D9279D665200272376 /* Bookmark.swift */,
+				7C107FED279EA96C001E0274 /* LinkTableViewCell.swift */,
+				7C107FEF279EAC91001E0274 /* AppStorage.swift */,
 			);
 			path = bookmarksUIKit;
 			sourceTree = "<group>";
@@ -215,8 +221,10 @@
 				7CBE25C4279D374E00272376 /* ViewController.swift in Sources */,
 				7CBE25D8279D60B600272376 /* MainViewController.swift in Sources */,
 				7CBE25C0279D374E00272376 /* AppDelegate.swift in Sources */,
+				7C107FF0279EAC91001E0274 /* AppStorage.swift in Sources */,
 				7CBE25DA279D665200272376 /* Bookmark.swift in Sources */,
 				7CBE25C2279D374E00272376 /* SceneDelegate.swift in Sources */,
+				7C107FEE279EA96C001E0274 /* LinkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
